@@ -8,7 +8,7 @@ let date = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
 
 document.getElementById("generate").addEventListener("click", performAction);
 
-function performAction(e) {
+export function performAction(e) {
   const feelings = document.getElementById("feelings").value;
   getWeather(baseURL, zip.value + ",", country.value, apiKey).then(function (
     data
