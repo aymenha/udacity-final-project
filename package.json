@@ -4,5 +4,17 @@
     "express": "^4.17.1",
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0"
+  },
+  "scripts": {
+    "start": "node src/server/index.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.3.2",
+    "webpack-dev-server": "^4.3.0"
   }
 }
