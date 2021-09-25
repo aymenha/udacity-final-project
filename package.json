@@ -1,14 +1,14 @@
 {
+  "scripts": {
+    "start": "node src/server/index.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0"
-  },
-  "scripts": {
-    "start": "node src/server/index.js",
-    "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
