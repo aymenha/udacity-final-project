@@ -13,7 +13,7 @@ export function performAction(e) {
   getWeather(baseURL, zip.value + ",", country.value, apiKey).then(function (
     data
   ) {
-    postData("/post", {
+    postData("http://localhost:8081/post", {
       city: data.name,
       temperature: data.main.temp,
       feelings: feelings,
@@ -54,7 +54,7 @@ const postData = async (url = "", data = {}) => {
 
 // create new entry with new data
 const newEntryData = async () => {
-  const request = await fetch("/get");
+  const request = await fetch("http://localhost:8081/get");
   try {
     const allData = await request.json();
     document.getElementById("city").innerHTML = allData.city;

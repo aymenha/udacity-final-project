@@ -1,4 +1,4 @@
 import { performAction } from "./js/app.js";
-import "./styles/styles.scss";
+import "./styles/base.scss";
 
 export { performAction };

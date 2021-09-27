@@ -1,12 +1,8 @@
 let projectData = {};
 
-// Require Express to run server and routes
 const express = require("express");
 
-// Start up an instance of app
 const app = express();
-
-/* Middleware*/
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -15,9 +11,9 @@ const cors = require("cors");
 app.use(cors());
 
 // // Initialize the main project folder
-app.use(express.static('dist'))
+app.use(express.static("dist"));
 
-const port = 3000;
+const port = 8081;
 
 // // Setup Server
 
@@ -25,6 +21,11 @@ const server = app.listen(port, listening);
 function listening() {
   console.log(`running on localhost: ${port}`);
 }
+
+app.get("/", function (req, res) {
+  res.sendFile("dist/index.html");
+  //   res.sendFile(path.resolve("dist/index.html"));
+});
 
 // GET route
 app.get("/get", sendData);
@@ -42,4 +43,5 @@ function addWeather(req, res) {
     date: req.body.date,
   };
   res.send(projectData);
+  console.log(projectData);
 }

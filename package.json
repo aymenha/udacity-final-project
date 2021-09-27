@@ -2,7 +2,7 @@
   "scripts": {
     "start": "node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
+    "build-dev": "webpack-dev-server --config webpack.dev.js --open"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -13,8 +13,17 @@
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
+    "@webpack-cli/serve": "^1.5.2",
     "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
     "html-webpack-plugin": "^5.3.2",
-    "webpack-dev-server": "^4.3.0"
+    "mini-css-extract-plugin": "^2.3.0",
+    "node-sass": "^6.0.1",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "terser-webpack-plugin": "^4.2.3",
+    "webpack-dev-server": "^4.3.0",
+    "workbox-webpack-plugin": "^6.3.0"
   }
 }
