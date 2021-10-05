@@ -1,4 +1,3 @@
-
 var path = require("path");
 const express = require("express");
 require("dotenv").config();
@@ -26,39 +25,22 @@ app.listen(8081, function () {
   console.log("Example app listening on port 8081!");
 });
 
-
 app.post("/geo", async function (req, res) {
-  const apiURL = `http://api.geonames.org/search?q=${city}&maxRows=1&type=json&username=${geoUser}`;
+  const city = req.body.cityResults;
+  const mainUrl = await fetch(
+    `http://api.geonames.org/search?q=${city}&maxRows=1&type=json&username=${geoUser}`
+  );
   try {
-    const res = await fetch(apiURL);
-    const data = await res.json();
-    console.log(data.countryName);
-
+    const data = await mainUrl.json();
+    console.log(data.subjectivity);
+    res.send(data);
+    // data to be returned in "results"
     return {
-      lng: data.lng,
-      lat: data.lat,
-      country: data.countryName,
+      latitud: data.lat,
+      long: data.lng,
+      name: data.name,
     };
-  } catch (err) {
-    console.log('Error: ', err);
+  } catch (error) {
+    console.log("error", error);
   }
 });
-
-// // GET route
-// app.get("/get", sendData);
-// function sendData(req, res) {
-//   res.send(projectData);
-// }
-
-// // POST route
-// app.post("/post", addWeather);
-// function addWeather(req, res) {
-//   projectData = {
-//     city: req.body.city,
-//     temperature: req.body.temperature,
-//     feelings: req.body.feelings,
-//     date: req.body.date,
-//   };
-//   res.send(projectData);
-//   console.log(projectData);
-// }
