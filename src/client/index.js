@@ -1,4 +1,4 @@
-import { performAction } from "./js/app.js";
+import { getCityName } from "./js/app.js";
 import "./styles/base.scss";
 
-export { performAction };
+export { getCityName };

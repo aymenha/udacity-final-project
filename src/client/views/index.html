@@ -13,12 +13,8 @@
       <div class="headline">Weather Journal App</div>
       <section class="input-buttons">
         <div class="input-content">
-          <label for="zip">Enter Zipcode here</label>
-          <input type="text" id="inputZip" placeholder="enter zip code here" />
-        </div>
-        <div class="input-content">
-          <label for="country">Enter country code</label>
-          <input type="text" id="country" placeholder="e.g. us, de, it" />
+          <label for="city">Enter Zipcode here</label>
+          <input type="text" id="inputCity" placeholder="City Name" />
         </div>
       </section>
       <div class="feelings">
@@ -32,7 +28,7 @@
       <button
         id="generate"
         type="submit"
-        onsubmit="return Client.performAction()"
+        onsubmit="return Client.getCityName()"
       >
         Generate
       </button>
@@ -40,9 +36,9 @@
         <div class="title">Most Recent Entry</div>
         <div id="entryHolder">
           <div id="city"></div>
-          <div id="date"></div>
-          <div id="temp"></div>
-          <div id="feels"></div>
+          <div id="latitud"></div>
+          <div id="longitud"></div>
+          <div id="name"></div>
         </div>
       </div>
     </div>
