@@ -28,11 +28,11 @@ app.listen(8081, function () {
 app.post("/geo", async function (req, res) {
   const city = req.body.cityResults;
   const mainUrl = await fetch(
-    `http://api.geonames.org/search?q=${city}&maxRows=1&type=json&username=${geoUser}`
+    `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${geoUser}`
   );
   try {
     const data = await mainUrl.json();
-    console.log(data.subjectivity);
+    console.log(data.latitud);
     res.send(data);
     // data to be returned in "results"
     return {
