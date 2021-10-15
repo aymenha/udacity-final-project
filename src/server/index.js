@@ -32,7 +32,6 @@ app.post("/geo", async function (req, res) {
   );
   try {
     const data = await mainUrl.json();
-    console.log(data.latitud);
     res.send(data);
     // data to be returned in "results"
     return {

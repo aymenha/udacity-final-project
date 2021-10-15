@@ -1,8 +1,9 @@
 let d = new Date();
 let date = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
 const cityResult = document.getElementById("inputCity");
+const submitButton = document.getElementById("generate");
 
-document.getElementById("generate").addEventListener("click", getCityName);
+submitButton.addEventListener("click", getCityName);
 
 export function getCityName(event) {
   event.preventDefault();
@@ -17,9 +18,15 @@ export function getCityName(event) {
     .then(function (res) {
       console.log(res);
       try {
-        document.getElementById("latitud").innerHTML = `${res.city.lat}`;
-        document.getElementById("longitud").innerHTML = `${res.city.lng}`;
-        document.getElementById("name").innerHTML = `${res.city.name}`;
+        document.getElementById(
+          "latitud"
+        ).innerHTML = `${res.city.data.geonames[0].lat}`;
+        document.getElementById(
+          "longitud"
+        ).innerHTML = `${res.city.geonames[0].lng}`;
+        document.getElementById(
+          "name"
+        ).innerHTML = `${res.city.geonames[0].name}`;
       } catch (error) {
         console.log("error", error);
       }
