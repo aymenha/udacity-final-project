@@ -5,6 +5,7 @@ const fetch = require("node-fetch");
 
 const geoUser = process.env.GEO_API_USER;
 
+
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
@@ -26,7 +27,7 @@ app.listen(8081, function () {
 });
 
 app.post("/geo", async function (req, res) {
-  const city = req.body.cityResults;
+  const city = req.body.city;
   const mainUrl = await fetch(
     `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${geoUser}`
   );
@@ -35,9 +36,9 @@ app.post("/geo", async function (req, res) {
     res.send(data);
     // data to be returned in "results"
     return {
-      latitud: data.lat,
-      long: data.lng,
-      name: data.name,
+      latitud: data.geonames[0].lat,
+      long: data.geonames[0].lng,
+      name: data.geonames[0].name,
     };
   } catch (error) {
     console.log("error", error);

@@ -11,27 +11,20 @@
   <body>
     <div id="app">
       <div class="headline">Weather Journal App</div>
-      <section class="input-buttons">
+      <form onsubmit="return Client.getCityName(event)">
         <div class="input-content">
-          <label for="city">Enter Zipcode here</label>
-          <input type="text" id="inputCity" placeholder="City Name" />
+          <label for="city">city to visit</label>
+          <input type="text" id="cityName" placeholder="City Name" />
         </div>
-      </section>
-      <div class="feelings">
-        <label for="feelings">How are you feeling today?</label>
-        <textarea
-          class="myInput"
-          id="feelings"
-          placeholder="Enter your feelings here"
-        ></textarea>
-      </div>
-      <button
-        id="generate"
-        type="submit"
-        onsubmit="return Client.getCityName()"
-      >
-        Generate
-      </button>
+        <button
+          id="generate"
+          type="submit"
+          onclick="return Client.getCityName(event)"
+          onsubmit="return Client.getCityName(event)"
+        >
+          Generate
+        </button>
+      </form>
       <div class="holder entry">
         <div class="title">Most Recent Entry</div>
         <div id="entryHolder">
