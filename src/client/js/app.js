@@ -1,24 +1,22 @@
-let d = new Date();
-let date = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
-
 export function getCityName(event) {
   event.preventDefault();
 
-  const cityResult = document.getElementById("cityName");
-  const city = cityResult.value;
+  const cityResult = document.getElementById("cityName").value;
+  const inputDate = document.getElementById("travelDate").value;
 
-  console.log("asldkfl" + city);
+  console.log("asldkfl" + inputDate);
 
   fetch("http://localhost:8081/geo", {
     method: "POST",
     credentials: "same-origin",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ data: city }),
+    body: JSON.stringify({ data: cityResult }),
   })
     .then((res) => res.json())
     .then(function (res) {
       console.log(res.data.geonames[0].lat);
       try {
+        document.getElementById("date").innerHTML = inputDate;
         document.getElementById(
           "latitud"
         ).innerHTML = `${res.data.geonames[0].lat}`;
@@ -33,3 +31,5 @@ export function getCityName(event) {
       }
     });
 }
+
+document.getElementById("generate").addEventListener("click", getCityName);
