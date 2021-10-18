@@ -4,6 +4,8 @@ require("dotenv").config();
 const fetch = require("node-fetch");
 
 const geoUser = process.env.GEO_API_USER;
+const weatherKey = process.env.WEATHER_API_KEY;
+const pixaKey = process.env.PIXABAY_API_KEY;
 
 const app = express();
 
@@ -26,22 +28,38 @@ app.listen(8081, function () {
 });
 
 app.post("/geo", async function (req, res) {
-  const city = req.body.cityResult;
-  const mainUrl = await fetch(
-    `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${geoUser}`
-  );
-  console.log(req.body.cityResult);
+  const city = req.body.data;
+
   try {
+    const mainUrl = await fetch(
+      `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${geoUser}`
+    );
     const data = await mainUrl.json();
 
-    // data to be returned in "results"
-    return {
+    const weatherResponse = await fetch(
+      `https://api.weatherbit.io/v2.0/current?lat=${data.geonames[0].lat}&lon=${data.geonames[0].lng}&key=${weatherKey}`
+    );
+    const weatherData = await weatherResponse.json();
+
+    const imageResponse = await fetch(
+      `https://pixabay.com/api/?key=${pixaKey}&q=${city}&image_type=photo`
+    );
+    const imageData = await imageResponse.json();
+
+    const cityData = {
       latitud: data.geonames[0].lat,
       long: data.geonames[0].lng,
       name: data.geonames[0].name,
+      timezone: weatherData.data[0].timezone,
+      backgroundImage: imageData.hits[0].largeImageURL,
     };
+
+    res.send(cityData);
   } catch (error) {
     console.log("error", error);
   }
-  res.send(data);
+
 });
+
+
+

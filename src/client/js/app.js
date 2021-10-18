@@ -14,18 +14,18 @@ export function getCityName(event) {
   })
     .then((res) => res.json())
     .then(function (res) {
-      console.log(res.data.geonames[0].lat);
+
       try {
         document.getElementById("date").innerHTML = inputDate;
         document.getElementById(
           "latitud"
-        ).innerHTML = `${res.data.geonames[0].lat}`;
+        ).innerHTML = `${res.latitud}`;
         document.getElementById(
           "longitud"
-        ).innerHTML = `${res.data.geonames[0].lng}`;
+        ).innerHTML = `${res.long}`;
         document.getElementById(
           "name"
-        ).innerHTML = `${res.data.geonames[0].name}`;
+        ).innerHTML = `${res.name}`;
       } catch (error) {
         console.log("error", error);
       }
