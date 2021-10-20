@@ -19,6 +19,11 @@ For this project you will get data from 3 different APIs after submiting data wi
   - [Weatherbit](https://www.weatherbit.io/)
   - [Pixabay](https://pixabay.com/api/docs/)
 
+- Run npm run build-prod to create a dist file
+- Run ``npm run build-dev``
+- On paralel run ``npm run start`` (to start the server side)
+
+
 ## Project preview
 
 ![image](https://user-images.githubusercontent.com/17495536/138152497-064ace2c-8cea-4c98-a0fa-bd9b2ef9f24b.png)
