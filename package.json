@@ -2,7 +2,13 @@
   "scripts": {
     "start": "node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack-dev-server --config webpack.dev.js --open"
+    "build-dev": "webpack-dev-server --config webpack.dev.js --open",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -14,10 +20,12 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@webpack-cli/serve": "^1.5.2",
+    "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
     "dotenv": "^10.0.0",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.3.1",
     "mini-css-extract-plugin": "^2.3.0",
     "node-fetch": "^2.6.1",
     "node-sass": "^6.0.1",
