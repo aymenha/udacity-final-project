@@ -3,17 +3,18 @@
     "start": "node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server --config webpack.dev.js --open",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+    "test": "jest"
   },
   "dependencies": {
+    "babel-jest": "^27.3.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.6",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@webpack-cli/serve": "^1.5.2",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
@@ -29,6 +30,5 @@
     "terser-webpack-plugin": "^4.2.3",
     "webpack-dev-server": "^4.3.0",
     "workbox-webpack-plugin": "^6.3.0"
-  },
-  "type": "module"
+  }
 }
