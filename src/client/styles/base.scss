@@ -1,19 +1,20 @@
 body {
-  background-color: #4055b6;
   min-height: 80vh;
   margin: 0;
+  // background-color: #4055b6;
 }
 
 #app {
   // image taken from unsplash
   background-image: url("https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80");
   background-size: cover;
-  padding: 50px 30px;
+  padding: 50px;
+  margin: 0 auto;
 }
 
 .headline {
   font-size: 50px;
-  padding: 50px 0 30px;
+  margin-bottom: 40px;
   text-align: center;
   color: white;
 }
@@ -30,11 +31,36 @@ form {
   }
 }
 
+.holder-entry {
+  padding: 50px;
+}
+
+.city-image {
+  width: 100%;
+}
+
+#city-image{
+  width: 100%;
+}
+
 .input-content,
 .input-date {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+}
+
+.data-content {
+  max-width: 500px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 30px;
+  }
+}
+
+.data-entry {
+  font-size: 20px;
 }
 
 #generate {
@@ -49,6 +75,26 @@ form {
 
 #generate:hover {
   background-color: #30b47d;
+}
+
+@media (min-width: 600px) {
+  .holder-entry {
+    padding: 50px;
+  }
+  .data-content {
+    h2 {
+      font-size: 60px;
+    }
+  }
+  .data-entry {
+    font-size: 35px;
+  }
+
+  #city-image {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
 }
 
 // /*  Basic Styling To Override Default For Basic HTML Elements */

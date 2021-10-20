@@ -4,6 +4,12 @@ export function getCityName(event) {
   const cityResult = document.getElementById("cityName").value;
   const inputDate = document.getElementById("travelDate").value;
 
+  if (!inputDate) {
+    alert("Enter a date");
+  } else if (!cityResult) {
+    alert("Enter a city name");
+  } else console.log("Form submited");
+
   console.log("asldkfl" + inputDate);
 
   fetch("http://localhost:8081/geo", {
@@ -14,18 +20,19 @@ export function getCityName(event) {
   })
     .then((res) => res.json())
     .then(function (res) {
-
       try {
-        document.getElementById("date").innerHTML = inputDate;
         document.getElementById(
-          "latitud"
-        ).innerHTML = `${res.latitud}`;
+          "entry-title"
+        ).innerHTML = `<h2>Your trip to: ${res.name}, ${res.country}</h2>`;
         document.getElementById(
-          "longitud"
-        ).innerHTML = `${res.long}`;
+          "date"
+        ).innerHTML = `Your trip is on: ${inputDate}`;
+        document.getElementById("latitud").innerHTML = `${res.latitud}`;
+        document.getElementById("longitud").innerHTML = `${res.long}`;
+        document.getElementById("timeZone").innerHTML = `<p>Temperature: ${res.temperature}, ${res.timezone}</p>`;
         document.getElementById(
-          "name"
-        ).innerHTML = `${res.name}`;
+          "city-image"
+        ).innerHTML = `<img src=${res.backgroundImage} class="city-image" />`;
       } catch (error) {
         console.log("error", error);
       }

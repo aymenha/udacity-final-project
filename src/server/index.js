@@ -50,7 +50,9 @@ app.post("/geo", async function (req, res) {
       latitud: data.geonames[0].lat,
       long: data.geonames[0].lng,
       name: data.geonames[0].name,
+      country: data.geonames[0].countryName,
       timezone: weatherData.data[0].timezone,
+      temperature: weatherData.data[0].temp,
       backgroundImage: imageData.hits[0].largeImageURL,
     };
 
