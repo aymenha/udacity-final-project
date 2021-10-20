@@ -1,5 +1,5 @@
 import { getCityName } from '../src/client/js/app';
 
-test('The function getCityName() must be defined to pass the test', () => {
+test('getCityName() must be defined', () => {
   expect(getCityName).toBeDefined();
 });
